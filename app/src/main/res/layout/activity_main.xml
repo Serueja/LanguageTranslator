@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <ScrollView
+        android:layout_above="@id/optionsLl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         
@@ -41,6 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_above="@id/translateBtn"
         android:gravity="center">
 
         <com.google.android.material.button.MaterialButton
@@ -70,6 +72,9 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/translateBtn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Translate"
+        app:cornerRadius="10dp"/>
     
 </RelativeLayout>

@@ -3,7 +3,9 @@ package com.example.languagetranslator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.widget.EditText
+import android.widget.PopupMenu
 import android.widget.TextView
 import com.google.android.material.button.MaterialButton
 import com.google.mlkit.nl.translate.TranslateLanguage
@@ -23,6 +25,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var languageArrayList: ArrayList<ModelLanguage>? = null
+
+    private var sourceLanguageCode = "en"
+    private var sourceLanguageTitle = "English"
+    private var targetLanguageCode = "ru"
+    private var targetLanguageTitle = "Russian"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -61,6 +69,19 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "loadAvailableLanguages: languageTitle: $languageTitle")
 
             val modelLanguage = ModelLanguage(languageCode, languageTitle)
+
+            languageArrayList!!.add(modelLanguage)
         }
+    }
+
+    private fun sourceLanguageChoose() {
+        val popupMenu = PopupMenu(this, sourceLanguageChooseBtn)
+
+        for (i in languageArrayList!!.indices) {
+
+            popupMenu.menu.add(Menu.NONE, i, i, languageArrayList!![i].languageTitle)
+        }
+
+        popupMenu.show()
     }
 }

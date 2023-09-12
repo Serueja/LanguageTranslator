@@ -44,11 +44,11 @@ class MainActivity : AppCompatActivity() {
         loadAvailableLanguages()
 
         sourceLanguageChooseBtn.setOnClickListener {
-
+            sourceLanguageChoose()
         }
 
         targetLanguageChooseBtn.setOnClickListener {
-
+            targetLanguageChoose()
         }
 
         translateBtn.setOnClickListener {
@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun sourceLanguageChoose() {
+
         val popupMenu = PopupMenu(this, sourceLanguageChooseBtn)
 
         for (i in languageArrayList!!.indices) {
@@ -83,5 +84,46 @@ class MainActivity : AppCompatActivity() {
         }
 
         popupMenu.show()
+
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            val position = menuItem.itemId
+
+            sourceLanguageCode = languageArrayList!![position].languageCode
+            sourceLanguageTitle = languageArrayList!![position].languageTitle
+
+            sourceLanguageChooseBtn.text = sourceLanguageTitle
+            sourceLanguageEt.hint = "Enter $sourceLanguageTitle"
+
+            Log.d(TAG, "sourceLanguageChoose: sourceLanguageCode: $sourceLanguageCode")
+            Log.d(TAG, "sourceLanguageChoose: sourceLanguageTitle: $sourceLanguageTitle")
+
+            false
+        }
+    }
+
+    private fun targetLanguageChoose(){
+
+        val popupMenu = PopupMenu(this, targetLanguageChooseBtn)
+
+        for (i in languageArrayList!!.indices) {
+
+            popupMenu.menu.add(Menu.NONE, i, i, languageArrayList!![i].languageTitle)
+        }
+
+        popupMenu.show()
+
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            val position = menuItem.itemId
+
+            targetLanguageCode = languageArrayList!![position].languageCode
+            targetLanguageTitle = languageArrayList!![position].languageTitle
+
+            targetLanguageChooseBtn.text = targetLanguageTitle
+
+            Log.d(TAG, "targetLanguageChoose: targetLanguageCode: $targetLanguageCode")
+            Log.d(TAG, "targetLanguageChoose: targetLanguageTitle: $targetLanguageTitle")
+
+            false
+        }
     }
 }

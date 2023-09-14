@@ -1,5 +1,6 @@
 package com.example.languagetranslator
 
+import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,8 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import com.google.android.material.button.MaterialButton
 import com.google.mlkit.nl.translate.TranslateLanguage
+import com.google.mlkit.nl.translate.Translator
+import com.google.mlkit.nl.translate.TranslatorOptions
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -31,6 +34,11 @@ class MainActivity : AppCompatActivity() {
     private var targetLanguageCode = "ru"
     private var targetLanguageTitle = "Russian"
 
+    private lateinit var translatorOptions: TranslatorOptions
+
+    private lateinit var translator: Translator
+
+    private lateinit var progressDialog: ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,6 +48,10 @@ class MainActivity : AppCompatActivity() {
         sourceLanguageChooseBtn = findViewById(R.id.sourceLanguageChooseBtn)
         targetLanguageChooseBtn = findViewById(R.id.targetLanguageChooseBtn)
         translateBtn = findViewById(R.id.translateBtn)
+
+        progressDialog = ProgressDialog(this)
+        progressDialog.setTitle("Please wait")
+        progressDialog.setCanceledOnTouchOutside(false)
 
         loadAvailableLanguages()
 
@@ -52,6 +64,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         translateBtn.setOnClickListener {
+            validateDate()
+        }
+    }
+
+    private var sourceLanguageText = ""
+    private fun validateDate(){
+        sourceLanguageText = sourceLanguageEt.text.toString().trim()
+
+        Log.d(TAG, "validateData: sourceLanguageText: $sourceLanguageText")
+
+        if (sourceLanguageText.isEmpty()) {
 
         }
     }
@@ -126,4 +149,6 @@ class MainActivity : AppCompatActivity() {
             false
         }
     }
+
+    private fun showToast()
 }

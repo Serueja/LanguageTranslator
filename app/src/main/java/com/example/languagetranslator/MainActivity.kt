@@ -8,8 +8,11 @@ import android.view.Menu
 import android.widget.EditText
 import android.widget.PopupMenu
 import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.button.MaterialButton
+import com.google.mlkit.common.model.DownloadConditions
 import com.google.mlkit.nl.translate.TranslateLanguage
+import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.Translator
 import com.google.mlkit.nl.translate.TranslatorOptions
 import java.util.Locale
@@ -75,8 +78,57 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "validateData: sourceLanguageText: $sourceLanguageText")
 
         if (sourceLanguageText.isEmpty()) {
-
+            showToast("Enter text to translate...")
         }
+        else {
+            startTranslation()
+        }
+    }
+
+    private fun startTranslation() {
+        progressDialog.setMessage("Processing language model...")
+        progressDialog.show()
+
+        translatorOptions = TranslatorOptions.Builder()
+            .setSourceLanguage(sourceLanguageCode)
+            .setTargetLanguage(targetLanguageCode)
+            .build()
+        translator = Translation.getClient(translatorOptions)
+
+        val downloadConditions = DownloadConditions.Builder()
+            .requireWifi()
+            .build()
+
+        translator.downloadModelIfNeeded(downloadConditions)
+            .addOnSuccessListener {
+                Log.d(TAG, "startTranslation: model ready, starting translation")
+
+                progressDialog.setMessage("Translating...")
+
+                translator.translate(sourceLanguageText)
+                    .addOnSuccessListener { translatedText ->
+                        Log.d(TAG, "startTranslation: translatedText: $translatedText")
+
+                        progressDialog.dismiss()
+
+                        targetLanguageTv.text = translatedText
+                    }
+                    .addOnFailureListener{e ->
+
+                        progressDialog.dismiss()
+
+                        Log.e(TAG, "startTranslation: ", e)
+
+                        showToast("Failed to translate due to ${e.message}")
+                    }
+            }
+            .addOnFailureListener{e ->
+                progressDialog.dismiss()
+
+                Log.e(TAG, "StartTranslation: ", e)
+
+                showToast("Failed due to ${e.message}")
+            }
     }
 
     private fun loadAvailableLanguages() {
@@ -150,5 +202,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showToast()
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
 }

@@ -2,12 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
     tools:context=".MainActivity">
 
+<<<<<<< HEAD
+
+=======
     <ScrollView
+        android:layout_above="@id/optionsLl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         
@@ -36,21 +41,24 @@
         
     </ScrollView>
     
+>>>>>>> 89d570dc22c967dc228938c8ff42ac2f605d0911
     <LinearLayout
-        android:id="@+id/optionsLl"
+        android:id="@+id/LL_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_above="@id/translateBtn"
         android:gravity="center">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/sourceLanguageChooseBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginEnd="5dp"
-            android:text="English"
+            android:text="@string/sourceLanguageChooseBtn"
+            android:layout_weight="1"
             app:cornerRadius="10dp"/>
+
         <ImageView
             android:src="@drawable/baseline_arrow_forward_24"
             android:layout_width="wrap_content"
@@ -61,15 +69,62 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
+            android:text="@string/targetLanguageChooseBtn"
             android:layout_weight="1"
-            android:text="Urdu"
             app:cornerRadius="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LL_edit"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/sourceLanguageEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="5dp"
+            android:hint="@string/enter_english"
+            android:minHeight="100dp"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/targetLanguageTv"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:text=""
+            android:textSize="18sp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/translateBtn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="459dp"
+            android:text="@string/translateBtn"
+            app:cornerRadius="10dp" />
 
     </LinearLayout>
-    
+
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/translateBtn"
+        android:id="@+id/historyBtn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+<<<<<<< HEAD
+        android:text="@string/historyBtn"
+        android:drawableEnd="@drawable/baseline_arrow_forward_24_w"
+        app:cornerRadius="10dp"/>
+
+
+=======
+        android:text="Translate"
+        app:cornerRadius="10dp"/>
     
+>>>>>>> 89d570dc22c967dc228938c8ff42ac2f605d0911
 </RelativeLayout>

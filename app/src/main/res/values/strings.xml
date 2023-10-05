@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">LanguageTranslator</string>
+    <string name="app_name">Translator</string>
     <string name="sourceLanguageChooseBtn">English</string>
     <string name="targetLanguageChooseBtn">Russian</string>
     <string name="translateBtn">Translate</string>
     <string name="historyBtn">Show history</string>
-    <string name="enter_english">Enter English</string>
-
+    <string name="enter">Enter text</string>
 </resources>

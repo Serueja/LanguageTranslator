@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Переводчик</string>
+    <string name="sourceLanguageChooseBtn">Английский</string>
+    <string name="targetLanguageChooseBtn">Руский</string>
+    <string name="translateBtn">Перевести</string>
+    <string name="historyBtn">Посмотреть историю</string>
+    <string name="enter">Введите текст</string>
+
+</resources>

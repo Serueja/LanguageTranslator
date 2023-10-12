@@ -3,11 +3,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="vectorColor">#FFA000</color>
-    <color name="colorBackground">#FFFFFFFF</color>
-    <color name="colorPrimary">#BDC5D6</color>
+    <color name="colorBackground">#F3F3F3</color>
+    <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryVariant">#1976D2</color>
     <color name="colorOnPrimary">#FFFFFF</color>
     <color name="colorSecondary">#FFA000</color>
     <color name="colorSecondaryVariant">#FF6F00</color>
     <color name="colorOnSecondary">#000000</color>
+    <color name="colorText">#232323</color>
+    <color name="textview2_background">#E6E6E6</color>
 </resources>

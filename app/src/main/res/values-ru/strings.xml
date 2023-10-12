@@ -5,5 +5,5 @@
     <string name="translateBtn">Перевести</string>
     <string name="historyBtn">Посмотреть историю</string>
     <string name="enter">Введите текст</string>
-
+    <string name="history">История переводов</string>
 </resources>

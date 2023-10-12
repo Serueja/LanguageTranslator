@@ -17,7 +17,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/sourceLanguageChooseBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:text="@string/sourceLanguageChooseBtn"
@@ -33,7 +33,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/targetLanguageChooseBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="@string/targetLanguageChooseBtn"
@@ -57,16 +57,22 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="5dp"
+            android:paddingLeft="5dp"
             android:hint="@string/enter"
             android:minHeight="100dp"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            />
 
         <TextView
             android:id="@+id/targetLanguageTv"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="wrap_content"
             android:text=""
-            android:textSize="18sp"/>
+            android:minHeight="45dp"
+            android:textSize="25sp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/colorText"
+            android:background="@color/textview2_background"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/translateBtn"

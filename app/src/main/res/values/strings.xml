@@ -5,4 +5,5 @@
     <string name="translateBtn">Translate</string>
     <string name="historyBtn">Show history</string>
     <string name="enter">Enter text</string>
+    <string name="history">History</string>
 </resources>

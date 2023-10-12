@@ -2,10 +2,10 @@
 <resources>
         <color name="colorPrimary">#494949</color>
         <color name="colorBackground">#292929</color>
-        <color name="colorPrimaryVariant">#000000</color>
         <color name="colorOnPrimary">#FFFFFF</color>
         <color name="colorSecondary">#FFA000</color>
         <color name="colorSecondaryVariant">#FF6F00</color>
-        <color name="colorOnSecondary">#000000</color>
         <color name="vectorColor">#FFFFFF</color>
+        <color name="colorText">#FFFFFF</color>
+        <color name="textview2_background">#494949</color>
 </resources>

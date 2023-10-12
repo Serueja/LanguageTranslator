@@ -24,6 +24,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.languagetranslator.HistoryActivity"
+            android:label="@string/history">
+        </activity>
+
     </application>
 
 </manifest>

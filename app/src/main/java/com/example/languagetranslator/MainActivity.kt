@@ -16,6 +16,9 @@ import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.Translator
 import com.google.mlkit.nl.translate.TranslatorOptions
 import java.util.Locale
+import android.content.Intent
+import androidx.appcompat.widget.Toolbar
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sourceLanguageChooseBtn: MaterialButton
     private lateinit var targetLanguageChooseBtn: MaterialButton
     private lateinit var translateBtn: MaterialButton
+    private lateinit var historyBtn: MaterialButton
+//    private lateinit var toolbar: Toolbar
 
     companion object {
         // for printing logs
@@ -51,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         sourceLanguageChooseBtn = findViewById(R.id.sourceLanguageChooseBtn)
         targetLanguageChooseBtn = findViewById(R.id.targetLanguageChooseBtn)
         translateBtn = findViewById(R.id.translateBtn)
+        historyBtn = findViewById(R.id.historyBtn)
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please wait")
@@ -69,7 +75,16 @@ class MainActivity : AppCompatActivity() {
         translateBtn.setOnClickListener {
             validateDate()
         }
-    }
+
+
+        historyBtn.setOnClickListener {
+            val intent = Intent(this@MainActivity, HistoryActivity::class.java)
+            startActivity(intent)
+        }
+
+//        toolbar = findViewById(R.id.toolbar)
+//        setSupportActionBar(toolbar)
+     }
 
     private var sourceLanguageText = ""
     private fun validateDate(){
@@ -205,4 +220,6 @@ class MainActivity : AppCompatActivity() {
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
+
+
 }

@@ -1,0 +1,29 @@
+<resources>
+    <style name="Main" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorText</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="android:background">@color/colorBackground</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="android:statusBarColor">@color/colorBackground</item>
+        <item name="android:navigationBarColor">@color/colorBackground</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+
+
+    <style name="ButtonTextStyle">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HistoryButtonTextStyle">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

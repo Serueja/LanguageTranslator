@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.languagetranslator"
-        minSdk = 21
+        minSdk = 27
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -32,6 +32,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 

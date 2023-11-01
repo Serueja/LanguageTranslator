@@ -6,6 +6,7 @@
         <color name="colorSecondary">#FFA000</color>
         <color name="colorSecondaryVariant">#FF6F00</color>
         <color name="vectorColor">#FFFFFF</color>
+        <color name="vectorHistoryColor">#7A7A7A</color>
         <color name="colorText">#FFFFFF</color>
         <color name="textview2_background">#494949</color>
 </resources>

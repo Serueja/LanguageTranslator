@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var targetLanguageChooseBtn: MaterialButton
     private lateinit var translateBtn: MaterialButton
     private lateinit var historyBtn: MaterialButton
-//    private lateinit var toolbar: Toolbar
 
     companion object {
         // for printing logs

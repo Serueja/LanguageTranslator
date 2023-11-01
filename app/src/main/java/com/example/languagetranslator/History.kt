@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 class History : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
-
+    private lateinit var db: DBHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_history)

@@ -17,7 +17,12 @@ import com.google.mlkit.nl.translate.Translator
 import com.google.mlkit.nl.translate.TranslatorOptions
 import java.util.Locale
 import android.content.Intent
+import android.database.Cursor
+import android.text.TextUtils
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import java.io.DataInput
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +33,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var targetLanguageChooseBtn: MaterialButton
     private lateinit var translateBtn: MaterialButton
     private lateinit var historyBtn: MaterialButton
+    private lateinit var recyclerView: RecyclerView
 
+    // db instance
+    private lateinit var db: DBHelper
+    lateinit var dbh: DBHelper
+    private lateinit var newArray: ArrayList<Datalist>
     companion object {
         // for printing logs
         private const val TAG = "MAIN_TAG"
@@ -46,9 +56,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var translator: Translator
 
     private lateinit var progressDialog: ProgressDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        db = DBHelper(this)
+
+        dbh = DBHelper(this)
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+        displayuser()
 
         sourceLanguageEt = findViewById(R.id.sourceLanguageEt)
         targetLanguageTv = findViewById(R.id.targetLanguageTv)
@@ -71,8 +90,25 @@ class MainActivity : AppCompatActivity() {
             targetLanguageChoose()
         }
 
+        // подвязка translateBtn к триггеру обновления БД
         translateBtn.setOnClickListener {
             validateDate()
+            val message = sourceLanguageEt.text.toString()
+            val langfrom = sourceLanguageChooseBtn.text.toString()
+            val langto = targetLanguageChooseBtn.text.toString()
+            val savehistory = db.savehistory(message, langfrom, langto)
+
+            if (TextUtils.isEmpty(message)) {
+                Toast.makeText(this, "Add Text For Translation", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                if (savehistory==true){
+                    Toast.makeText(this, "Text Saved", Toast.LENGTH_SHORT).show()
+                }
+//                else {
+//                    Toast.makeText(this, "Text Saved", Toast.LENGTH_SHORT).show()
+//                }
+            }
         }
 
 
@@ -84,6 +120,10 @@ class MainActivity : AppCompatActivity() {
 //        toolbar = findViewById(R.id.toolbar)
 //        setSupportActionBar(toolbar)
      }
+
+    private fun displayuser() {
+        var newCursor: Cursor =
+    }
 
     private var sourceLanguageText = ""
     private fun validateDate(){

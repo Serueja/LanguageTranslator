@@ -122,7 +122,9 @@ class MainActivity : AppCompatActivity() {
      }
 
     private fun displayuser() {
-        var newCursor: Cursor =
+        var newcursor: Cursor? = dbh!!.gettext()
+        newArray = ArrayList<Datalist>
+        while (newcursor)
     }
 
     private var sourceLanguageText = ""
